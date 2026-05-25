@@ -1,5 +1,7 @@
+import ProductList from "@/features/products/components/product-list";
+
 const Products = () => {
-  return <div>Products</div>;
+  return <ProductList />;
 };
 
 export default Products;
