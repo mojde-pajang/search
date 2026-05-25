@@ -12,7 +12,7 @@ const ProductList = () => {
   return (
     <div className="grid grid-cols-3 gap-4">
       {products.map((product) => {
-        return <ProductCard product={product} />;
+        return <ProductCard key={product.id} product={product} />;
       })}
     </div>
   );
