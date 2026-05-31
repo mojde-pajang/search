@@ -3,14 +3,22 @@ import { Input } from "@/components/ui/input";
 import useProducts from "../hooks/useProducts";
 import ProductCard from "./product-card";
 import { useState } from "react";
+import type { Product } from "../types/product";
 
 const ProductList = () => {
   const { isError, isLoading, error, products } = useProducts();
   const [search_text, set_search_text] = useState("");
 
+  const searched_data = search_text == "" ? products :  products.filter((product: Product)=> {
+   return  product.title.toLocaleLowerCase().includes(search_text)
+  })
+
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    set_search_text(e.target.value)
+
   };
+
 
   if (isLoading) return <Spinner className="size-20" />;
 
@@ -27,7 +35,7 @@ const ProductList = () => {
         />
       </div>
       <div className="grid grid-cols-3 gap-4">
-        {products.map((product) => {
+        {searched_data.map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}
       </div>
