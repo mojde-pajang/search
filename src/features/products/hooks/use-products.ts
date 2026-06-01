@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Product } from "../types/product";
-import { get_products } from "../api/products.api";
+import { getProducts } from "../api/products.api";
 import { AxiosError } from "axios";
 
 type ProductState =
@@ -18,7 +18,7 @@ const useProducts = () => {
     const fetchProducts = async () => {
       setData({ status: "loading" });
       try {
-        const response = await get_products();
+        const response = await getProducts();
         setData({ status: "success", products: response });
       } catch (err) {
         const errorMessage =
