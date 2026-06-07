@@ -1,9 +1,10 @@
-import { Spinner } from "#components/ui/spinner";
+
 import { Input } from "@/components/ui/input";
 import useProducts from "../hooks/use-products";
 import ProductCard from "./product-card";
 import { useState } from "react";
 import type { Product } from "../types/product";
+import Loading from "#components/app/loading";
 
 const ProductList = () => {
   const { isError, isLoading, error, products } = useProducts();
@@ -20,7 +21,8 @@ const ProductList = () => {
   };
 
 
-  if (isLoading) return <Spinner className="size-20" />;
+  if (isLoading) return <Loading />
+
 
   if (isError) return <div>{error}</div>;
 
