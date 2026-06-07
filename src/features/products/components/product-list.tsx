@@ -5,9 +5,10 @@ import ProductCard from "./product-card";
 import { useState } from "react";
 import type { Product } from "../types/product";
 import Loading from "#components/app/loading";
+import Error from "#components/app/error";
 
 const ProductList = () => {
-  const { isError, isLoading, error, products } = useProducts();
+  const { isError, isLoading, error, products, errorStatus } = useProducts();
   const [searchText, setSearchText] = useState("");
 
   const searchedData = searchText == "" ? products :  products.filter((product: Product)=> {
@@ -24,7 +25,7 @@ const ProductList = () => {
   if (isLoading) return <Loading />
 
 
-  if (isError) return <div>{error}</div>;
+  if (isError) return <Error errorMessage={error} errorStatus={errorStatus} />;
 
   return (
     <>
