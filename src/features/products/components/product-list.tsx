@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { Product } from "../types/product";
 import Loading from "#components/app/loading";
 import Error from "#components/app/error";
+import { getProducts } from "../api/products.api";
 
 const ProductList = () => {
   const { isError, isLoading, error, products, errorStatus } = useProducts();
@@ -25,7 +26,7 @@ const ProductList = () => {
   if (isLoading) return <Loading />
 
 
-  if (isError) return <Error errorMessage={error} errorStatus={errorStatus} />;
+  if (isError) return <Error errorMessage={error} errorStatus={errorStatus} fallback={getProducts} />;
 
   return (
     <>
@@ -38,7 +39,7 @@ const ProductList = () => {
         />
       </div>
       <div className="grid grid-cols-3 gap-4">
-        {searchedData.map((product) => {
+        {searchedData?.map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}
       </div>
