@@ -25,7 +25,12 @@ const useProducts = () => {
           err instanceof AxiosError
             ? err.message
             : "An unexpected error occurred";
-        setData({ status: "error", error: errorMessage, errorStatus: err instanceof AxiosError ? err.response?.status : undefined });
+        setData({
+          status: "error",
+          error: errorMessage,
+          errorStatus:
+            err instanceof AxiosError ? err.response?.status : undefined,
+        });
       }
     };
 

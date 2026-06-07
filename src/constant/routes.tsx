@@ -11,7 +11,7 @@ export const Routers = createBrowserRouter([
     children: [
       { index: true, Component: App },
       { path: "products", Component: Products },
-      {path:"*", Component: NotFound}
+      { path: "*", Component: NotFound },
     ],
   },
 ]);

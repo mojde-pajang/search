@@ -126,7 +126,6 @@ body {
   margin: 0;
 }
 
-
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: "Figtree Variable", sans-serif;

@@ -1,4 +1,3 @@
-
 import { Input } from "@/components/ui/input";
 import useProducts from "../hooks/use-products";
 import ProductCard from "./product-card";
@@ -12,20 +11,27 @@ const ProductList = () => {
   const { isError, isLoading, error, products, errorStatus } = useProducts();
   const [searchText, setSearchText] = useState("");
 
-  const searchedData = searchText == "" ? products :  products.filter((product: Product)=> {
-   return  product.title.toLocaleLowerCase().includes(searchText)
-  })
+  const searchedData =
+    searchText == ""
+      ? products
+      : products.filter((product: Product) => {
+          return product.title.toLocaleLowerCase().includes(searchText);
+        });
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value)
-
+    setSearchText(e.target.value);
   };
 
+  if (isLoading) return <ListProductSkeleton />;
 
-  if (isLoading) return <ListProductSkeleton />
-
-
-  if (isError) return <Error errorMessage={error} errorStatus={errorStatus} fallback={getProducts} />;
+  if (isError)
+    return (
+      <Error
+        errorMessage={error}
+        errorStatus={errorStatus}
+        fallback={getProducts}
+      />
+    );
 
   return (
     <>

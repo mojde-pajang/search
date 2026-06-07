@@ -1,9 +1,7 @@
-import Error from "#components/app/error"
+import Error from "#components/app/error";
 
 const NotFound = () => {
-  return (
-    <Error errorStatus="404" errorMessage="Not found page" />
-  )
-}
+  return <Error errorStatus="404" errorMessage="Not found page" />;
+};
 
-export default NotFound
+export default NotFound;

@@ -33,6 +33,7 @@ A React + TypeScript product search/listing app built with Vite, Tailwind CSS, a
    ```
 
    `.env`:
+
    ```
    VITE_BASE_URL=https://dummyjson.com/
    ```
@@ -47,12 +48,12 @@ A React + TypeScript product search/listing app built with Vite, Tailwind CSS, a
 
 ### Available Scripts
 
-| Command        | Description                        |
-| -------------- | ---------------------------------- |
-| `pnpm dev`     | Start the development server       |
+| Command        | Description                         |
+| -------------- | ----------------------------------- |
+| `pnpm dev`     | Start the development server        |
 | `pnpm build`   | Type-check and build for production |
-| `pnpm preview` | Preview the production build       |
-| `pnpm lint`    | Run ESLint                         |
+| `pnpm preview` | Preview the production build        |
+| `pnpm lint`    | Run ESLint                          |
 
 ---
 
