@@ -7,7 +7,7 @@ type ProductState =
   | { status: "idle" }
   | { status: "loading" }
   | { status: "success"; products: Product[] }
-  | { status: "error"; error: string };
+  | { status: "error"; error: string; errorStatus?: number };
 
 const useProducts = () => {
   const [data, setData] = useState<ProductState>({
@@ -25,7 +25,12 @@ const useProducts = () => {
           err instanceof AxiosError
             ? err.message
             : "An unexpected error occurred";
-        setData({ status: "error", error: errorMessage });
+        setData({
+          status: "error",
+          error: errorMessage,
+          errorStatus:
+            err instanceof AxiosError ? err.response?.status : undefined,
+        });
       }
     };
 
@@ -36,6 +41,7 @@ const useProducts = () => {
     products: data.status === "success" ? data.products : [],
     isLoading: data.status === "loading",
     error: data.status === "error" ? data.error : null,
+    errorStatus: data.status === "error" ? data.errorStatus : undefined,
     isError: data.status === "error",
   };
 };

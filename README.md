@@ -1,4 +1,63 @@
-# React + TypeScript + Vite
+# Search
+
+A React + TypeScript product search/listing app built with Vite, Tailwind CSS, and shadcn/ui.
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+)
+- [pnpm](https://pnpm.io/) (`npm install -g pnpm`)
+
+### Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repo-url>
+   cd search
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Configure environment variables**
+
+   Copy the example env file and update the values as needed:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   `.env`:
+
+   ```
+   VITE_BASE_URL=https://dummyjson.com/
+   ```
+
+4. **Start the development server**
+
+   ```bash
+   pnpm dev
+   ```
+
+   The app will be available at `http://localhost:5173`.
+
+### Available Scripts
+
+| Command        | Description                         |
+| -------------- | ----------------------------------- |
+| `pnpm dev`     | Start the development server        |
+| `pnpm build`   | Type-check and build for production |
+| `pnpm preview` | Preview the production build        |
+| `pnpm lint`    | Run ESLint                          |
+
+---
+
+## Original Vite Template Notes
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
